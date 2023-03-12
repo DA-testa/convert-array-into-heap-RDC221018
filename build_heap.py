@@ -32,7 +32,7 @@ def main():
     elif "F" in text:
         filename = input()
         if not 'a' in filename:
-            filename = "test/" + filename
+            filename = "tests/" + filename
             f = open(filename, "r")
             n = f.readline()
             n = int(n)
