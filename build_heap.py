@@ -8,16 +8,21 @@ def build_heap(data):
         min_index = i
         left = 2 * i + 1
         right = 2 * i + 2
-        if left < n and data[left] < data[min_index]:
-            min_index = left
-        if right < n and data[right] < data[min_index]:
-            min_index = right
-        if i != min_index:
-            swaps.append((i, min_index))
-            data[i], data[min_index] = data[min_index], data[i]
-            j_swaps = build_heap(data)
-            swaps.extend(j_swaps)
+        while left < n:
+            if data[left] < data[min_index]:
+                min_index = left
+            if right < n and data[right] < data[min_index]:
+                min_index = right
+            if i != min_index:
+                swaps.append((i, min_index))
+                data[i], data[min_index] = data[min_index], data[i]
+                i = min_index
+                left = 2 * i + 1
+                right = 2 * i + 2
+            else:
+                break
     return swaps
+
 
 def main():
     text = input()
