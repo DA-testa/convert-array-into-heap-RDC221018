@@ -21,29 +21,21 @@ def build_heap(data):
 
 def main():
     text = input()
-    if "I" in (text):
+    if 'I' in text:
         n = int(input())
         data = list(map(int, input().split()))
-        assert len(data) == n
-        swaps = build_heap(data)
-        print(len(swaps))
-        for i, j in swaps:
-            print(i, j)
-    elif "F" in text:
-        filename = input()
-        if not 'a' in filename:
-            filename = "tests/" + filename
-            f = open(filename, "r")
-            n = f.readline()
-            n = int(n)
-            data = f.readline()
-            data = list(map(int, data.split()))
-            assert len(data) == n
-            swaps = build_heap(data)
-            print(len(swaps))
-            for i, j in swaps:
-                print(i, j)
-    pass
+    elif 'F' in text:
+        name = input()
+        if not 'a' in name: 
+            name = "tests/"+name
+            f = open(name, "r")
+            n = int(f.readline())
+            data = list(map(int,f.readline().split()))
+    assert len(data) == n
+    swaps = build_heap(data)
+    print(len(swaps))
+    for i, j in swaps:
+        print(i, j)
 
 
 
